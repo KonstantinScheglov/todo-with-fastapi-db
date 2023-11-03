@@ -27,3 +27,4 @@ def read_task_API(todo_id: int, db: Session = Depends(get_db)):
 def update_todo(todo_id: int, new_task: schemas.UpdateTask, db: Session = Depends(get_db)):
     upd_task = crud.update_task(db=db, task_id=todo_id, new_task=new_task)
     return upd_task
+
