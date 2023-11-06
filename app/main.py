@@ -10,7 +10,7 @@ app = FastAPI()
 
 
 @app.post('/todos/', response_model=schemas.ReadTask)
-async def create_task_API(task: schemas.DatabaseCreateTask, db: Session = Depends(get_db)):
+async def create_task_API(task: schemas.DatabaseCreateTask, db: Session = Depends(get_async_session)):
     new_task = await crud.create_task(db=db, new_task=task)
     return new_task
 
